@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#F5F2EA]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumit Bhardwaj | Content, Copywriting, Reddit & AI Video</title>
+    <meta name="description" content="Portfolio of Sumit Bhardwaj: Content Specialist, Copywriter, Reddit Expert, and AI Video Animation Professional. Driving strategy, client calls, and massive growth.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-ivory': '#F5F2EA',
+                        'card-bg': '#EBE7DF', 
+                        'brand-black': '#111111',
+                        'brand-orange': '#FF512B',
+                        'brand-dark': '#151515',
+                        'muted-gray': '#6B6B6B',
+                        'border-light': '#DCD8CE'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Helvetica Neue', 'sans-serif'],
+                    },
+                    letterSpacing: {
+                        tighter: '-.05em',
+                        widest: '.15em',
+                    },
+                    fontSize: {
+                        'tiny': '.65rem',
+                        'huge': '5.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Styles */
+        ::selection { background-color: #FF512B; color: #F5F2EA; }
+        body { color: #111111; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+        /* 1. AUTOMATIC LOAD ANIMATION (For Hero) */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .animate-on-load {
+            opacity: 0;
+            animation: fadeInUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        }
+
+        /* 2. SCROLL REVEAL (For rest of page) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px) scale(0.97);
+            transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        /* Staggered Delays */
+        .delay-100 { animation-delay: 100ms; transition-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; transition-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; transition-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; transition-delay: 400ms; }
+
+        /* Typography */
+        .headline-tight { line-height: 0.92; letter-spacing: -0.04em; }
+
+        /* Nav Underline */
+        .nav-link { position: relative; padding-bottom: 4px; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 100%; height: 2px;
+            bottom: 0; left: 0; background-color: #FF512B;
+            transform: scaleX(0); transform-origin: bottom right;
+            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+
+        /* Hover Effects */
+        .image-wrapper { overflow: hidden; position: relative; }
+        .card-image { transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1); will-change: transform; }
+        .group:hover .card-image { transform: scale(1.08); }
+
+        .card-arrow { transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1); }
+        .group:hover .card-arrow {
+            transform: rotate(-45deg) scale(1.1);
+            background-color: #FF512B; color: white; border-color: #FF512B;
+        }
+
+        .client-card { transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1); }
+        .client-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05); border-color: #FF512B; }
+
+        /* Masonry Grid */
+        .masonry-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 180px; gap: 20px; }
+        .masonry-item-1 { grid-column: span 2; grid-row: span 2; }
+        .masonry-item-2 { grid-column: span 1; grid-row: span 1; }
+        .masonry-item-3 { grid-column: span 1; grid-row: span 2; }
+        .masonry-item-4 { grid-column: span 2; grid-row: span 1; }
+        @media (max-width: 768px) {
+            .masonry-grid { grid-template-columns: 1fr; grid-auto-rows: 250px; }
+            .masonry-item-1, .masonry-item-2, .masonry-item-3, .masonry-item-4 { grid-column: span 1; grid-row: span 1; }
+        }
+
+        /* Modals */
+        .modal-overlay { visibility: hidden; opacity: 0; transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1); }
+        .modal-overlay.active { visibility: visible; opacity: 1; }
+        .modal-content { transform: translateY(50px) scale(0.95); transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); transition-delay: 0.1s; }
+        .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
+        .no-scroll { overflow: hidden; }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-orange selection:text-white relative">
+
+    <nav class="fixed w-full top-0 z-50 bg-warm-ivory/90 backdrop-blur-xl border-b border-border-light transition-all duration-300" id="navbar">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-4 group cursor-pointer" onclick="window.scrollTo(0,0)">
+                <div class="w-3 h-3 rounded-full bg-brand-orange group-hover:scale-150 transition-transform duration-500"></div>
+                <span class="text-[11px] font-extrabold tracking-widest uppercase text-brand-black">Sumit Bhardwaj</span>
+            </div>
+            
+            <div class="hidden md:flex gap-12 text-[10px] font-bold tracking-widest uppercase text-muted-gray">
+                <a href="#work" class="nav-link hover:text-brand-black">Work</a>
+                <a href="#capabilities" class="nav-link hover:text-brand-black">Capabilities</a>
+                <a href="#clients" class="nav-link hover:text-brand-black">Clients</a>
+                <a href="#about" class="nav-link hover:text-brand-black">About</a>
+                <a href="#contact" class="nav-link hover:text-brand-black">Contact</a>
+            </div>
+
+            <button class="md:hidden text-tiny font-bold tracking-widest uppercase flex items-center gap-2" onclick="toggleMobileMenu()">
+                <span>Menu</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="absolute top-16 left-0 w-full bg-warm-ivory border-b border-border-light px-6 py-8 flex flex-col gap-8 text-[11px] font-bold tracking-widest uppercase text-muted-gray shadow-2xl transition-all duration-500 origin-top transform scale-y-0 opacity-0">
+            <a href="#work" class="hover:text-brand-orange" onclick="toggleMobileMenu()">Work</a>
+            <a href="#capabilities" class="hover:text-brand-orange" onclick="toggleMobileMenu()">Capabilities</a>
+            <a href="#clients" class="hover:text-brand-orange" onclick="toggleMobileMenu()">Clients</a>
+            <a href="#about" class="hover:text-brand-orange" onclick="toggleMobileMenu()">About</a>
+            <a href="#contact" class="hover:text-brand-orange" onclick="toggleMobileMenu()">Contact</a>
+        </div>
+    </nav>
+
+    <header id="home" class="pt-40 md:pt-56 pb-20 relative overflow-hidden">
+        
+        <div class="absolute top-20 right-0 w-[50vw] h-[50vw] bg-brand-orange/5 rounded-full blur-[100px] -z-10"></div>
+        <div class="absolute bottom-0 left-10 w-[30vw] h-[30vw] bg-gray-400/10 rounded-full blur-[80px] -z-10"></div>
+
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            <div class="lg:col-span-7 animate-on-load relative z-10">
+                <div class="inline-flex items-center gap-3 px-4 py-2 mb-10 rounded-full border border-border-light text-[10px] font-bold tracking-widest uppercase bg-white/50 backdrop-blur-sm shadow-sm">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-orange"></span>
+                    </span>
+                    Content · Copywriting · Reddit · AI Video
+                </div>
+                
+                <h1 class="text-6xl md:text-7xl lg:text-[6.5rem] font-extrabold headline-tight mb-10 text-brand-black">
+                    I turn complex<br>
+                    ideas into <span class="text-brand-orange relative">
+                        stories
+                        <svg class="absolute w-full h-4 -bottom-1 left-0 text-brand-orange opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none">
+                            <path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </span><br>
+                    people actually<br>
+                    care about.
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-muted-gray max-w-xl mb-12 font-light leading-relaxed">
+                    I am a content specialist, persuasive copywriter, Reddit strategist, and AI video animation expert. I handle everything from deep market research to running client strategy calls.
+                </p>
+                
+                <div class="flex flex-wrap items-center gap-6">
+                    <a href="#contact" class="inline-flex items-center gap-4 bg-brand-black text-warm-ivory px-8 py-5 rounded-full text-sm font-bold tracking-wide hover:bg-brand-orange hover:shadow-xl hover:shadow-brand-orange/30 transition-all duration-300 transform hover:-translate-y-1">
+                        Book a strategy call 
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    
+                    <div class="flex items-center gap-4">
+                        <div class="flex -space-x-3">
+                            <div class="w-10 h-10 rounded-full border-2 border-warm-ivory bg-gray-300 flex items-center justify-center text-[10px] font-bold">FMI</div>
+                            <div class="w-10 h-10 rounded-full border-2 border-warm-ivory bg-gray-400 flex items-center justify-center text-[10px] font-bold text-white">EC</div>
+                            <div class="w-10 h-10 rounded-full border-2 border-warm-ivory bg-brand-orange flex items-center justify-center text-[10px] font-bold text-white">20+</div>
+                        </div>
+                        <span class="text-xs font-bold text-muted-gray uppercase tracking-widest">Global Clients</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 relative animate-on-load delay-200 mt-16 lg:mt-0">
+                <div class="absolute -top-6 -right-6 bg-white text-brand-black px-6 py-4 rounded-2xl rotate-6 shadow-xl z-20 border border-border-light flex flex-col gap-1 hover:rotate-0 transition-transform duration-500 hidden md:flex">
+                    <span class="text-[10px] font-bold text-muted-gray uppercase tracking-widest">Output</span>
+                    <span class="text-xl font-extrabold text-brand-orange">4,000+ Articles</span>
+                </div>
+                
+                <div class="absolute bottom-12 -left-12 bg-brand-dark text-white px-6 py-4 rounded-2xl -rotate-3 shadow-2xl z-20 border border-brand-dark flex flex-col gap-1 hover:rotate-0 transition-transform duration-500 hidden md:flex">
+                    <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Role</span>
+                    <span class="text-xl font-extrabold">Client-Facing Strategy</span>
+                </div>
+                
+                <div class="aspect-[4/5] bg-card-bg rounded-[2.5rem] overflow-hidden relative z-10 border-2 border-white shadow-2xl image-wrapper">
+                    <img 
+                        src="zaaaaaopppp.png" 
+                        alt="Sumit Bhardwaj Portrait" 
+                        class="w-full h-full object-cover card-image" 
+                        onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop'; this.classList.add('grayscale', 'mix-blend-multiply', 'opacity-80')"
+                    >
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12 mt-32 animate-on-load delay-300">
+            <div class="border-t border-b border-border-light py-6 overflow-hidden relative">
+                <div class="flex flex-wrap gap-x-12 gap-y-6 text-[11px] font-extrabold tracking-widest uppercase text-brand-black justify-between items-center w-full">
+                    <span class="hover:text-brand-orange transition-colors cursor-default">Copywriting</span>
+                    <span class="w-1.5 h-1.5 bg-brand-orange rounded-full hidden sm:block"></span>
+                    <span class="hover:text-brand-orange transition-colors cursor-default">Reddit Growth</span>
+                    <span class="w-1.5 h-1.5 bg-brand-orange rounded-full hidden sm:block"></span>
+                    <span class="hover:text-brand-orange transition-colors cursor-default">AI Video Animation</span>
+                    <span class="w-1.5 h-1.5 bg-brand-orange rounded-full hidden md:block"></span>
+                    <span class="hidden md:inline hover:text-brand-orange transition-colors cursor-default">Market Research</span>
+                    <span class="w-1.5 h-1.5 bg-brand-orange rounded-full hidden lg:block"></span>
+                    <span class="hidden lg:inline hover:text-brand-orange transition-colors cursor-default">Client Consultation</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="outcomes" class="py-24 md:py-32 bg-white rounded-t-[3rem] shadow-[0_-20px_40px_rgba(0,0,0,0.02)] relative z-10">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20 reveal">
+                <div class="lg:col-span-3">
+                    <h5 class="text-[10px] font-bold tracking-widest uppercase text-brand-orange mb-4 flex items-center gap-3">
+                        <span class="w-8 h-px bg-brand-orange"></span>
+                        Proven Results
+                    </h5>
+                </div>
+                <div class="lg:col-span-9">
+                    <h2 class="text-5xl md:text-6xl font-extrabold headline-tight text-brand-black">Numbers over noise.</h2>
+                    <p class="mt-8 text-muted-gray text-xl md:text-2xl max-w-3xl font-light leading-relaxed">
+                        I don't just write words to fill a page. I generate real, measurable impact through strategic copywriting, authentic community building, and cinematic visual motion.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 reveal delay-100">
+                <div class="flex flex-col relative group">
+                    <div class="absolute -left-4 top-0 w-1 h-full bg-border-light group-hover:bg-brand-orange transition-colors duration-500"></div>
+                    <span class="text-6xl md:text-7xl font-extrabold headline-tight text-brand-black mb-6">4,000<span class="text-brand-orange">+</span></span>
+                    <span class="text-lg font-bold text-brand-black leading-snug mb-2">Articles & Copy Written</span>
+                    <p class="text-sm text-muted-gray font-light">Published across multiple industries, deeply optimized for search intent and conversion.</p>
+                </div>
+                <div class="flex flex-col relative group">
+                    <div class="absolute -left-4 top-0 w-1 h-full bg-border-light group-hover:bg-brand-orange transition-colors duration-500"></div>
+                    <span class="text-6xl md:text-7xl font-extrabold headline-tight text-brand-black mb-6">300<span class="text-brand-orange">+</span></span>
+                    <span class="text-lg font-bold text-brand-black leading-snug mb-2">Deep Market Reports</span>
+                    <p class="text-sm text-muted-gray font-light">Highly technical B2B intelligence reports breaking down complex data into readable assets.</p>
+                </div>
+                <div class="flex flex-col relative group">
+                    <div class="absolute -left-4 top-0 w-1 h-full bg-border-light group-hover:bg-brand-orange transition-colors duration-500"></div>
+                    <span class="text-6xl md:text-7xl font-extrabold headline-tight text-brand-black mb-6">2M<span class="text-brand-orange">+</span></span>
+                    <span class="text-lg font-bold text-brand-black leading-snug mb-2">Reddit Views Generated</span>
+                    <p class="text-sm text-muted-gray font-light">Built a massive audience from scratch in just three months using non-promotional, authentic strategy.</p>
+                </div>
+                <div class="flex flex-col relative group">
+                    <div class="absolute -left-4 top-0 w-1 h-full bg-border-light group-hover:bg-brand-orange transition-colors duration-500"></div>
+                    <span class="text-6xl md:text-7xl font-extrabold headline-tight text-brand-black mb-6">5.4<span class="text-brand-orange">k</span></span>
+                    <span class="text-lg font-bold text-brand-black leading-snug mb-2">Impressions on Debut</span>
+                    <p class="text-sm text-muted-gray font-light">Rapid engagement on experimental AI video creative campaigns testing cinematic visual limits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="py-24 md:py-40 bg-[#F2EFE8]">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+            
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24 reveal">
+                <div class="max-w-3xl">
+                    <h5 class="text-[10px] font-bold tracking-widest uppercase text-brand-orange mb-6 flex items-center gap-3">
+                        <span class="w-8 h-px bg-brand-orange"></span>
+                        Selected Work
+                    </h5>
+                    <h2 class="text-5xl md:text-6xl font-extrabold headline-tight text-brand-black">The work that drives businesses forward.</h2>
+                </div>
+                <div class="mt-8 md:mt-0">
+                    <p class="text-lg font-bold text-muted-gray uppercase tracking-widest">2023 - 2026</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="group col-span-1 md:col-span-2 block bg-white rounded-[32px] p-8 md:p-16 transition-all duration-500 reveal border border-border-light/60 hover:shadow-2xl hover:shadow-brand-orange/5 cursor-pointer" onclick="openModal('modal-fmi')">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                        <div class="lg:col-span-5 flex flex-col justify-between h-full">
+                            <div>
+                                <div class="flex items-center gap-4 mb-8">
+                                    <span class="text-[11px] font-extrabold tracking-widest uppercase text-muted-gray bg-gray-100 px-3 py-1.5 rounded-full">01</span>
+                                    <span class="text-[11px] font-extrabold tracking-widest uppercase text-brand-orange bg-brand-orange/10 px-3 py-1.5 rounded-full">Market Research</span>
+                                </div>
+                                <h3 class="text-4xl md:text-5xl font-extrabold headline-tight text-brand-black mb-6">300+ Industry Intelligence Reports</h3>
+                                <p class="text-lg text-muted-gray mb-12 font-light leading-relaxed">
+                                    Authored massive, highly technical market research reports for Future Market Insights. Focused on clear market sizing, forecasting, and turning dense data into readable business intelligence.
+                                </p>
+                            </div>
+                            
+                            <div class="flex items-center gap-4">
+                                <div class="inline-flex items-center justify-center w-14 h-14 rounded-full border-2 border-border-light card-arrow text-brand-black">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </div>
+                                <span class="text-xs font-bold uppercase tracking-widest text-brand-black">Read Case Study</span>
+                            </div>
+                        </div>
+                        
+                        <div class="lg:col-span-7 w-full aspect-[4/3] bg-card-bg rounded-[2rem] overflow-hidden border border-border-light relative image-wrapper shadow-inner">
+                            <img src="plata-o-plo-pasin-emprender-por-dinero-o.jpg" class="w-full h-full object-cover card-image opacity-100" alt="Market Research Data">
+                            <div class="absolute top-8 left-8 right-8 bottom-8 border border-white/30 rounded-xl hidden md:block pointer-events-none"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group block bg-brand-dark rounded-[32px] p-8 md:p-12 transition-all duration-500 reveal flex flex-col justify-between min-h-[600px] cursor-pointer hover:shadow-2xl hover:shadow-black/50" onclick="openModal('modal-reddit')">
+                    <div>
+                        <div class="flex items-center gap-4 mb-8">
+                            <span class="text-[11px] font-extrabold tracking-widest uppercase text-gray-500 bg-white/10 px-3 py-1.5 rounded-full">02</span>
+                            <span class="text-[11px] font-extrabold tracking-widest uppercase text-brand-orange bg-brand-orange/10 px-3 py-1.5 rounded-full">Reddit Specialist</span>
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-extrabold headline-tight text-white mb-6">Building Authority on Reddit</h3>
+                        <p class="text-base text-gray-400 font-light leading-relaxed mb-12">
+                            Generated 2M+ views in 3 months. I don't just post; I understand community behavior, write non-promotional high-value content, and establish true authority.
+                        </p>
+                    </div>
+                    
+                    <div class="w-full h-64 bg-white/5 rounded-[2rem] border border-white/10 p-8 flex flex-col justify-end relative overflow-hidden image-wrapper">
+                        <div class="absolute top-6 right-6 inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-white/20 text-white card-arrow z-10 bg-black/40 backdrop-blur-md">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                        <div class="w-full h-full flex items-end gap-3 opacity-80 card-image">
+                            <div class="w-full bg-brand-orange h-[20%] rounded-t-md relative"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white font-mono">10k</div></div>
+                            <div class="w-full bg-warm-ivory/80 h-[40%] rounded-t-md relative"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white font-mono">150k</div></div>
+                            <div class="w-full bg-warm-ivory/80 h-[35%] rounded-t-md relative"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white font-mono">300k</div></div>
+                            <div class="w-full bg-warm-ivory/80 h-[70%] rounded-t-md relative"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white font-mono">600k</div></div>
+                            <div class="w-full bg-brand-orange h-[100%] rounded-t-md relative"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-brand-orange font-mono font-bold">2M+</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group block bg-white rounded-[32px] p-8 md:p-12 transition-all duration-500 reveal delay-100 border border-border-light/60 hover:shadow-2xl hover:shadow-brand-orange/5 flex flex-col justify-between min-h-[600px] cursor-pointer" onclick="openModal('modal-ai')">
+                    <div>
+                        <div class="flex items-center gap-4 mb-8">
+                            <span class="text-[11px] font-extrabold tracking-widest uppercase text-muted-gray bg-gray-100 px-3 py-1.5 rounded-full">03</span>
+                            <span class="text-[11px] font-extrabold tracking-widest uppercase text-brand-orange bg-brand-orange/10 px-3 py-1.5 rounded-full">AI Video Animation</span>
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-extrabold headline-tight text-brand-black mb-6">Cinematic AI Motion</h3>
+                        <p class="text-base text-muted-gray font-light leading-relaxed mb-12">
+                            Creating stunning, photorealistic animations and commercial videos using advanced AI prompting, midjourney, and motion tools to tell visual stories.
+                        </p>
+                    </div>
+                    
+                    <div class="w-full h-64 bg-brand-black rounded-[2rem] border border-border-light relative overflow-hidden image-wrapper">
+                        <img src="WhatsApp Image 2026-09-15 at 2.32.50 AM.jpeg" class="w-full h-full object-cover card-image opacity-100 grayscale group-hover:grayscale-0 transition-all duration-700" alt="AI Video Thumbnail">
+                        <div class="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="white" class="ml-2"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                        <div class="absolute top-6 right-6 inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-white/20 text-white card-arrow z-20 bg-black/40 backdrop-blur-md">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="capabilities" class="py-24 md:py-40 bg-brand-dark text-warm-ivory relative overflow-hidden">
+        <svg class="absolute inset-0 w-full h-full opacity-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+            <defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="currentColor" stroke-width="0.5"/></pattern></defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24 reveal">
+                <div class="lg:col-span-4">
+                    <h5 class="text-[10px] font-bold tracking-widest uppercase text-brand-orange mb-6 flex items-center gap-3">
+                        <span class="w-8 h-px bg-brand-orange"></span>
+                        Core Capabilities
+                    </h5>
+                    <h2 class="text-4xl md:text-5xl font-extrabold headline-tight mb-8">I manage the work, and I manage the clients.</h2>
+                </div>
+                <div class="lg:col-span-8 lg:mt-12">
+                    <p class="text-gray-400 text-xl md:text-2xl font-light leading-relaxed max-w-3xl">
+                        I am not just a behind-the-scenes writer. I am highly comfortable taking client calls, running strategy sessions, and delivering exact results across copy, video, and community.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal delay-100">
+                <div class="bg-[#1A1A1A] p-10 md:p-14 rounded-[2rem] border border-white/5 hover:border-brand-orange/50 transition-colors duration-500 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-orange/10 rounded-full blur-[40px] -mr-10 -mt-10 group-hover:bg-brand-orange/20 transition-colors"></div>
+                    <div class="w-14 h-14 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center mb-8 text-brand-orange">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <h4 class="text-2xl font-extrabold mb-4 text-white">Client Strategy Calls</h4>
+                    <p class="text-base text-gray-400 font-light leading-relaxed">Confident and articulate on client calls. I ask the right questions, understand business goals, and present clear solutions directly to stakeholders.</p>
+                </div>
+
+                <div class="bg-[#1A1A1A] p-10 md:p-14 rounded-[2rem] border border-white/5 hover:border-brand-orange/50 transition-colors duration-500 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-orange/10 rounded-full blur-[40px] -mr-10 -mt-10 group-hover:bg-brand-orange/20 transition-colors"></div>
+                    <div class="w-14 h-14 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center mb-8 text-brand-orange">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                    </div>
+                    <h4 class="text-2xl font-extrabold mb-4 text-white">Conversion Copywriting</h4>
+                    <p class="text-base text-gray-400 font-light leading-relaxed">Writing clear, persuasive copy for landing pages, emails, and ads that bypass the fluff, get straight to the point, and get people to click and buy.</p>
+                </div>
+
+                <div class="bg-[#1A1A1A] p-10 md:p-14 rounded-[2rem] border border-white/5 hover:border-brand-orange/50 transition-colors duration-500 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-orange/10 rounded-full blur-[40px] -mr-10 -mt-10 group-hover:bg-brand-orange/20 transition-colors"></div>
+                    <div class="w-14 h-14 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center mb-8 text-brand-orange">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    </div>
+                    <h4 class="text-2xl font-extrabold mb-4 text-white">Reddit Community Growth</h4>
+                    <p class="text-base text-gray-400 font-light leading-relaxed">I know how Reddit works. I build authority naturally, bypassing the spam filters to get authentic, massive visibility without feeling like an ad.</p>
+                </div>
+
+                <div class="bg-[#1A1A1A] p-10 md:p-14 rounded-[2rem] border border-white/5 hover:border-brand-orange/50 transition-colors duration-500 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-orange/10 rounded-full blur-[40px] -mr-10 -mt-10 group-hover:bg-brand-orange/20 transition-colors"></div>
+                    <div class="w-14 h-14 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center mb-8 text-brand-orange">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
+                    </div>
+                    <h4 class="text-2xl font-extrabold mb-4 text-white">AI Video Animation</h4>
+                    <p class="text-base text-gray-400 font-light leading-relaxed">Producing stunning 3D animations, product reveals, and commercial visuals using cutting-edge AI tools to create high-end output fast.</p>
+                </div>
+
+                <div class="bg-[#1A1A1A] p-10 md:p-14 rounded-[2rem] border border-white/5 hover:border-brand-orange/50 transition-colors duration-500 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-orange/10 rounded-full blur-[40px] -mr-10 -mt-10 group-hover:bg-brand-orange/20 transition-colors"></div>
+                    <div class="w-14 h-14 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center mb-8 text-brand-orange">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <h4 class="text-2xl font-extrabold mb-4 text-white">4,000+ Articles Written</h4>
+                    <p class="text-base text-gray-400 font-light leading-relaxed">Massive output capacity. I have written thousands of highly optimized articles that rank on search engines and capture user intent perfectly.</p>
+                </div>
+
+                <div class="bg-[#1A1A1A] p-10 md:p-14 rounded-[2rem] border border-white/5 hover:border-brand-orange/50 transition-colors duration-500 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-orange/10 rounded-full blur-[40px] -mr-10 -mt-10 group-hover:bg-brand-orange/20 transition-colors"></div>
+                    <div class="w-14 h-14 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center mb-8 text-brand-orange">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+                    </div>
+                    <h4 class="text-2xl font-extrabold mb-4 text-white">Market Research</h4>
+                    <p class="text-base text-gray-400 font-light leading-relaxed">Digging deep into data to write authoritative, factual B2B industry reports that position brands as undeniable market leaders.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 md:py-32 bg-warm-ivory border-b border-border-light">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+                <h5 class="text-[10px] font-bold tracking-widest uppercase text-brand-orange mb-6">The Methodology</h5>
+                <h2 class="text-4xl md:text-5xl font-extrabold headline-tight text-brand-black">How I turn a blank page into business value.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 reveal delay-100 relative">
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-px bg-border-light -translate-y-1/2 z-0"></div>
+
+                <div class="bg-white p-8 rounded-3xl border border-border-light relative z-10 hover:-translate-y-2 transition-transform duration-300">
+                    <span class="w-12 h-12 bg-brand-black text-white rounded-full flex items-center justify-center font-bold text-lg mb-6">1</span>
+                    <h4 class="text-xl font-bold mb-4">Discovery Call</h4>
+                    <p class="text-sm text-muted-gray font-light">Direct client communication to uncover exact goals, target audience, and the true voice of the brand.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-border-light relative z-10 hover:-translate-y-2 transition-transform duration-300">
+                    <span class="w-12 h-12 bg-brand-black text-white rounded-full flex items-center justify-center font-bold text-lg mb-6">2</span>
+                    <h4 class="text-xl font-bold mb-4">Deep Research</h4>
+                    <p class="text-sm text-muted-gray font-light">Whether it's Reddit scraping, competitor analysis, or market sizing, I build a foundation of absolute truth.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-border-light relative z-10 hover:-translate-y-2 transition-transform duration-300">
+                    <span class="w-12 h-12 bg-brand-black text-white rounded-full flex items-center justify-center font-bold text-lg mb-6">3</span>
+                    <h4 class="text-xl font-bold mb-4">Creation & Copy</h4>
+                    <p class="text-sm text-muted-gray font-light">Drafting high-conversion copy, detailed reports, or cinematic AI prompts tailored strictly to the objective.</p>
+                </div>
+
+                <div class="bg-brand-orange p-8 rounded-3xl border border-brand-orange relative z-10 hover:-translate-y-2 transition-transform duration-300 text-white shadow-xl shadow-brand-orange/20">
+                    <span class="w-12 h-12 bg-white text-brand-orange rounded-full flex items-center justify-center font-bold text-lg mb-6">4</span>
+                    <h4 class="text-xl font-bold mb-4">Delivery & Scale</h4>
+                    <p class="text-sm text-white/90 font-light">Publishing, tracking engagement (like hitting 2M Reddit views), and refining the strategy for ongoing growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="clients" class="py-24 md:py-40 bg-white">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+            
+            <div class="mb-20 text-center reveal">
+                <h5 class="text-[10px] font-bold tracking-widest uppercase text-brand-orange mb-6">Who I've Worked With</h5>
+                <h2 class="text-5xl md:text-6xl font-extrabold headline-tight text-brand-black max-w-4xl mx-auto">Trusted by agencies, firms, and brands across the globe.</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 reveal delay-100">
+                <div class="bg-brand-black p-10 rounded-[2rem] border border-gray-800 text-center client-card flex flex-col justify-between">
+                    <div>
+                        <div class="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-6">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        </div>
+                        <span class="text-[10px] font-bold text-brand-orange uppercase tracking-widest block mb-3">Core Agency Partner</span>
+                        <h4 class="text-3xl font-extrabold text-white mb-8">Ingenious Netsoft</h4>
+                    </div>
+                    <a href="https://ingeniousnetsoft.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp" class="text-sm text-gray-400 hover:text-brand-orange transition-colors">Visit Website ↗</a>
+                </div>
+
+                <div class="bg-brand-black p-10 rounded-[2rem] border border-gray-800 text-center client-card flex flex-col justify-between">
+                    <div>
+                        <div class="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-6">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        </div>
+                        <span class="text-[10px] font-bold text-brand-orange uppercase tracking-widest block mb-3">Core Agency Partner</span>
+                        <h4 class="text-3xl font-extrabold text-white mb-8">Supreme Technologies</h4>
+                    </div>
+                    <a href="https://www.supremetechnologies.com/" class="text-sm text-gray-400 hover:text-brand-orange transition-colors">Visit Website ↗</a>
+                </div>
+
+                <div class="bg-brand-orange p-10 rounded-[2rem] border border-brand-orange text-center client-card shadow-xl shadow-brand-orange/20 flex flex-col justify-between">
+                    <div>
+                        <div class="w-16 h-16 mx-auto bg-white/20 rounded-full flex items-center justify-center mb-6 text-white">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                        </div>
+                        <span class="text-[10px] font-bold text-white uppercase tracking-widest block mb-3">Primary Research Firm</span>
+                        <h4 class="text-3xl font-extrabold text-white mb-8">Future Market Insights</h4>
+                    </div>
+                    <a href="https://www.futuremarketinsights.com/" target="_blank" class="text-sm text-white/80 hover:text-white font-bold transition-colors">Visit Website ↗</a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 reveal delay-200">
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">The Evergreen Experience</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">MadiMack</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">Aliyah Massage</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">Hakim Injury Law</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">The New Dichotomy</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">Wilson Aspire Hoop Academy</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">Standard Access</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">Cyprus-PC</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">Isla Vista Optical</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">SportCourt PA</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">Modelle Academy</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">All Spec Sun Control</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">Neo Home Loans</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">Armour Tech Site Security</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">Our Easy Game</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">Real Buy Box</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">The Shroom Groove</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">Groove Guide</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">Groove Grill Wellness</h5></div>
+                <div class="p-6 border border-border-light rounded-2xl hover:border-brand-orange transition-colors group cursor-pointer text-center flex flex-col justify-center min-h-[140px] bg-warm-ivory"><h5 class="font-bold text-brand-black text-sm group-hover:text-brand-orange transition-colors">Join Craft Club</h5></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 md:py-32 bg-[#F2EFE8] border-t border-border-light overflow-hidden">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            
+            <div class="reveal">
+                <h5 class="text-[10px] font-bold tracking-widest uppercase text-brand-orange mb-6 flex items-center gap-3">
+                    <span class="w-8 h-px bg-brand-orange"></span>
+                    About The Human
+                </h5>
+                <h2 class="text-4xl md:text-5xl font-extrabold headline-tight text-brand-black mb-12">There is a life behind all that work.</h2>
+                
+                <div class="space-y-8">
+                    <div class="flex gap-6 items-start">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-border-light flex-shrink-0 text-brand-orange">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold tracking-widest uppercase text-brand-black mb-2">Curiosity & Finance</h4>
+                            <p class="text-sm md:text-base text-muted-gray font-light leading-relaxed">I’m naturally curious about what happens when technology changes the way people work, businesses compete, and markets move. I spend a lot of my time reading, researching, and writing about AI, markets, finance, labor, and the forces shaping what comes next.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-6 items-start">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-border-light flex-shrink-0 text-brand-orange">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold tracking-widest uppercase text-brand-black mb-2">Building Independently</h4>
+                            <p class="text-sm md:text-base text-muted-gray font-light leading-relaxed">Not everything I build has a client or a brief behind it. I publish my own ideas through Decoding Markets & Tech, experiment with AI and visual storytelling, and occasionally turn an idea into a website or digital product just to see where it can go. I learn a lot by building things myself.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-6 items-start">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-border-light flex-shrink-0 text-brand-orange">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold tracking-widest uppercase text-brand-black mb-2">Constant Learning</h4>
+                            <p class="text-sm md:text-base text-muted-gray font-light leading-relaxed">I’m always learning something new, usually because a question caught my attention and I couldn’t leave it alone. Lately, that has meant spending time with AI, digital finance, markets, quantum computing, and the deeper ideas behind the technologies shaping the future.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="reveal delay-200">
+                <div class="masonry-grid">
+                    <div class="masonry-item-1 bg-card-bg rounded-3xl border-4 border-white overflow-hidden shadow-lg image-wrapper">
+                        <img src="IMG-20260615-WA0152.jpg.jpeg" alt="Sumit Life" class="w-full h-full object-cover card-image opacity-100" onerror="this.src='https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop'; this.classList.remove('opacity-80', 'mix-blend-multiply');">
+                    </div>
+                    <div class="masonry-item-2 bg-card-bg rounded-3xl border-4 border-white overflow-hidden shadow-lg image-wrapper">
+                        <img src="IMG-20260427-WA0327.jpg.jpeg " alt="Sumit Life" class="w-full h-full object-cover card-image opacity-100" onerror="this.src='https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=400&auto=format&fit=crop'; this.classList.remove('opacity-80', 'mix-blend-multiply');">
+                    </div>
+                    <div class="masonry-item-3 bg-brand-black rounded-3xl border-4 border-white overflow-hidden p-6 flex items-end shadow-lg transform hover:-translate-y-2 transition-transform">
+                        <span class="text-white text-xs font-extrabold uppercase tracking-widest leading-snug">Football. Cricket. Badminton. Life outside the screen.</span>
+                    </div>
+                    <div class="masonry-item-4 bg-card-bg rounded-3xl border-4 border-white overflow-hidden shadow-lg image-wrapper">
+                        <img src="IMG-20260427-WA0046.jpg.jpeg" alt="Sumit Life" class="w-full h-full object-cover card-image opacity-100" onerror="this.src='https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop'; this.classList.remove('opacity-80', 'mix-blend-multiply');">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="px-4 md:px-6 pb-24 md:pb-32 pt-24 bg-warm-ivory relative z-10">
+        <div class="max-w-[1400px] mx-auto bg-brand-black text-warm-ivory rounded-[3rem] p-10 md:p-24 reveal shadow-2xl relative overflow-hidden">
+            
+            <div class="absolute -right-20 -bottom-20 w-[500px] h-[500px] border-[40px] border-white/5 rounded-full pointer-events-none"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 relative z-10">
+                
+                <div>
+                    <h2 class="text-5xl md:text-6xl lg:text-7xl font-extrabold headline-tight mb-8">Need someone who actually handles the work?</h2>
+                    <p class="text-gray-400 text-xl font-light mb-12 max-w-lg leading-relaxed">
+                        Whether it's writing killer conversion copy, animating an AI video, taking over a subreddit, or leading a highly technical client strategy call—let's talk.
+                    </p>
+                    
+                    <div class="flex flex-col gap-6">
+                        <div class="bg-white/5 rounded-[2rem] p-8 border border-white/10 hover:border-brand-orange transition-colors group cursor-pointer">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-orange mb-3 block">Direct Email</span>
+                            <a href="mailto:sumitbhardwaj1357@gmail.com" class="text-2xl font-bold text-white group-hover:text-brand-orange transition-colors flex justify-between items-center">
+                                sumitbhardwaj1357@gmail.com
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transform group-hover:translate-x-2 transition-transform"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 rounded-[2rem] p-10 md:p-12 border border-white/10 backdrop-blur-sm relative">
+                    <form id="contactForm" class="space-y-10">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            <div class="relative">
+                                <label class="block text-[10px] font-bold tracking-widest uppercase text-gray-400 mb-2">Name</label>
+                                <input type="text" name="name" required class="w-full bg-transparent border-b border-white/20 pb-3 text-white focus:outline-none focus:border-brand-orange transition-colors placeholder-gray-600 text-base font-light" placeholder="John Doe">
+                            </div>
+                            <div class="relative">
+                                <label class="block text-[10px] font-bold tracking-widest uppercase text-gray-400 mb-2">Email</label>
+                                <input type="email" name="email" required class="w-full bg-transparent border-b border-white/20 pb-3 text-white focus:outline-none focus:border-brand-orange transition-colors placeholder-gray-600 text-base font-light" placeholder="john@company.com">
+                            </div>
+                        </div>
+                        
+                        <div class="relative">
+                            <label class="block text-[10px] font-bold tracking-widest uppercase text-gray-400 mb-2">What do you need?</label>
+                            <select name="service" class="w-full bg-transparent border-b border-white/20 pb-3 text-white focus:outline-none focus:border-brand-orange transition-colors text-base font-light appearance-none cursor-pointer rounded-none">
+                                <option class="bg-brand-black" value="copywriting">Copywriting & Content</option>
+                                <option class="bg-brand-black" value="reddit">Reddit Strategy</option>
+                                <option class="bg-brand-black" value="ai_video">AI Video Animation</option>
+                                <option class="bg-brand-black" value="consultation">Client Call / Strategy Lead</option>
+                                <option class="bg-brand-black" value="research">Market Research</option>
+                            </select>
+                            <div class="absolute right-0 bottom-4 pointer-events-none text-gray-400">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                            </div>
+                        </div>
+                        
+                        <div class="relative">
+                            <label class="block text-[10px] font-bold tracking-widest uppercase text-gray-400 mb-2">Message</label>
+                            <textarea name="message" rows="4" required class="w-full bg-transparent border-b border-white/20 pb-3 text-white focus:outline-none focus:border-brand-orange transition-colors placeholder-gray-600 text-base font-light resize-none" placeholder="Tell me what we're building..."></textarea>
+                        </div>
+                        
+                        <button type="submit" id="submitBtn" class="bg-brand-orange text-white px-10 py-5 rounded-full text-sm font-extrabold tracking-wide hover:bg-white hover:text-brand-black transition-all duration-300 flex items-center gap-3 mt-4 w-full justify-center group">
+                            <span id="btnText">Send Message</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </form>
+
+                    <div id="formSuccess" class="hidden flex-col items-center justify-center text-center py-16">
+                        <div class="w-16 h-16 rounded-full bg-brand-orange/10 border border-brand-orange flex items-center justify-center text-brand-orange mb-6">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Message Sent!</h3>
+                        <p class="text-gray-400 text-sm font-light">Thanks for reaching out, Sumit will get back to you within 24 hours.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-warm-ivory border-t border-border-light py-20 pb-32">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-16">
+            
+            <div class="md:col-span-5">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-3 h-3 rounded-full bg-brand-orange"></div>
+                    <span class="text-sm font-extrabold tracking-widest uppercase text-brand-black">Sumit Bhardwaj</span>
+                </div>
+                <div class="flex flex-col gap-3 text-sm text-muted-gray font-light">
+                    <span>Copywriter & Content Specialist</span>
+                    <span>Reddit Growth Expert</span>
+                    <span>AI Video Animation Professional</span>
+                    <span>Client Strategy Lead</span>
+                </div>
+            </div>
+
+            <div class="md:col-span-3">
+                <h6 class="text-[10px] font-bold uppercase tracking-widest text-brand-black mb-6">Navigation</h6>
+                <div class="flex flex-col gap-4 text-xs font-bold tracking-widest uppercase text-muted-gray">
+                    <a href="#home" class="hover:text-brand-orange transition-colors w-fit">Home</a>
+                    <a href="#work" class="hover:text-brand-orange transition-colors w-fit">Work</a>
+                    <a href="#capabilities" class="hover:text-brand-orange transition-colors w-fit">Capabilities</a>
+                    <a href="#clients" class="hover:text-brand-orange transition-colors w-fit">Clients</a>
+                    <a href="#about" class="hover:text-brand-orange transition-colors w-fit">About</a>
+                </div>
+            </div>
+
+            <div class="md:col-span-4 flex flex-col justify-between">
+                <div>
+                    <h6 class="text-[10px] font-bold uppercase tracking-widest text-brand-black mb-6">Connect</h6>
+                    <div class="flex flex-col gap-4 text-xs font-bold tracking-widest uppercase text-muted-gray">
+                        <a href="https://www.linkedin.com/in/sumitbhardwaj1357/" target="_blank" class="hover:text-brand-orange transition-colors w-fit flex items-center gap-2">
+                            LinkedIn <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="https://medium.com/@sumitbhardwaj1357" target="_blank" class="hover:text-brand-orange transition-colors w-fit flex items-center gap-2">
+                            Medium <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="https://www.reddit.com/user/Fuzzy-Cycle-7275/" target="_blank" class="hover:text-brand-orange transition-colors w-fit flex items-center gap-2">
+                            Reddit <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="mt-16 text-[10px] font-bold tracking-widest uppercase text-muted-gray">
+                    © 2026 Sumit Bhardwaj<br>
+                    <span class="font-light normal-case tracking-normal block mt-3 max-w-sm">
+                        This is a personal portfolio. Employer and client names, trademarks, and interfaces are shown solely to identify the context of my work.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal-fmi" class="fixed inset-0 z-[100] flex items-center justify-center modal-overlay">
+        <div class="absolute inset-0 bg-brand-black/95 backdrop-blur-xl" onclick="closeModal('modal-fmi')"></div>
+        <div class="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto bg-warm-ivory rounded-[2rem] shadow-2xl modal-content no-scrollbar m-4">
+            <button onclick="closeModal('modal-fmi')" class="absolute top-8 right-8 w-12 h-12 bg-white rounded-full flex items-center justify-center border border-border-light hover:bg-brand-orange hover:text-white transition-colors z-10 shadow-lg">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div class="w-full h-80 bg-card-bg relative">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover mix-blend-multiply opacity-50" alt="FMI Case Study">
+            </div>
+            <div class="p-10 md:p-20">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="text-[10px] font-bold tracking-widest uppercase text-brand-orange bg-brand-orange/10 px-3 py-1.5 rounded-full">Market Research</span>
+                    <span class="text-[10px] font-bold tracking-widest uppercase text-muted-gray">Future Market Insights</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-extrabold headline-tight text-brand-black mb-12">Synthesizing global data into 300+ authoritative industry reports.</h2>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-16 border-t border-border-light pt-12">
+                    <div class="md:col-span-4">
+                        <div class="mb-10">
+                            <h4 class="text-[10px] font-bold tracking-widest uppercase text-muted-gray mb-3">Role</h4>
+                            <p class="text-base font-bold text-brand-black">Market Research Writer</p>
+                        </div>
+                        <div class="mb-10">
+                            <h4 class="text-[10px] font-bold tracking-widest uppercase text-muted-gray mb-3">Output</h4>
+                            <p class="text-base font-bold text-brand-black">300+ Long-form Reports<br>CAGR Forecasting<br>Competitive Landscapes</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-8 space-y-10 text-lg font-light leading-relaxed text-brand-black">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">The Challenge</h3>
+                            <p>B2B audiences don't want fluff; they want actionable data. The challenge was taking massive, complex datasets involving market sizing, regulatory intelligence, and global segmentation, and translating them into readable, authoritative narratives that executives could actually use.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">The Approach</h3>
+                            <p>I structured a highly systematic writing process. Each report followed a strict hierarchy: Executive Summary, Market Dynamics, Regional Benchmarking, and Competitive Intelligence. By standardizing the format, I was able to rapidly scale production without sacrificing factual accuracy.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">The Impact</h3>
+                            <p>Delivered over 300 comprehensive reports covering diverse sectors including food technology, nutraceuticals, and healthcare inputs. These reports directly supported the firm's SEO dominance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-reddit" class="fixed inset-0 z-[100] flex items-center justify-center modal-overlay">
+        <div class="absolute inset-0 bg-brand-black/95 backdrop-blur-xl" onclick="closeModal('modal-reddit')"></div>
+        <div class="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto bg-brand-dark rounded-[2rem] shadow-2xl modal-content no-scrollbar m-4 border border-white/10">
+            <button onclick="closeModal('modal-reddit')" class="absolute top-8 right-8 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center border border-white/20 hover:bg-brand-orange text-white transition-colors z-10 shadow-lg">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div class="p-10 md:p-20">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="text-[10px] font-bold tracking-widest uppercase text-brand-orange bg-brand-orange/10 px-3 py-1.5 rounded-full border border-brand-orange/20">Reddit Strategy</span>
+                    <span class="text-[10px] font-bold tracking-widest uppercase text-gray-400">Community Growth</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-extrabold headline-tight text-white mb-12">Building a 2M+ view Reddit engine from zero.</h2>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-16 border-t border-white/10 pt-12">
+                    <div class="md:col-span-4">
+                        <div class="mb-10">
+                            <h4 class="text-[10px] font-bold tracking-widest uppercase text-gray-500 mb-3">Role</h4>
+                            <p class="text-base font-bold text-white">Reddit Strategist & Copywriter</p>
+                        </div>
+                        <div class="mb-10">
+                            <h4 class="text-[10px] font-bold tracking-widest uppercase text-gray-500 mb-3">Metrics</h4>
+                            <p class="text-base font-bold text-brand-orange text-3xl">2,000,000+</p>
+                            <p class="text-sm text-gray-400">Views in ~3 months</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-8 space-y-10 text-lg font-light leading-relaxed text-gray-300">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-white">The Truth About Reddit</h3>
+                            <p>Reddit hates marketers. If you try to sell, you get banned. The challenge was to build brand authority and massive visibility on the platform without triggering the community's aggressive anti-promotion filters.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-white">The Execution</h3>
+                            <p>Instead of posting links, I posted value. I reverse-engineered the subreddits, analyzed what type of long-form stories and data breakdowns the community upvoted, and wrote native content that solved real problems. The brand was positioned as a helpful peer, not a corporation.</p>
+                        </div>
+                        <a href="https://www.reddit.com/user/Fuzzy-Cycle-7275/" target="_blank" class="inline-flex items-center gap-3 bg-white text-brand-black px-8 py-4 rounded-full text-sm font-bold tracking-wide hover:bg-brand-orange hover:text-white transition-colors">
+                            View Live Reddit Presence
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-ai" class="fixed inset-0 z-[100] flex items-center justify-center modal-overlay">
+        <div class="absolute inset-0 bg-brand-black/95 backdrop-blur-xl" onclick="closeModal('modal-ai')"></div>
+        <div class="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto bg-warm-ivory rounded-[2rem] shadow-2xl modal-content no-scrollbar m-4">
+            <button onclick="closeModal('modal-ai')" class="absolute top-8 right-8 w-12 h-12 bg-white rounded-full flex items-center justify-center border border-border-light hover:bg-brand-orange hover:text-white transition-colors z-10 shadow-lg">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div class="w-full h-80 bg-brand-black relative">
+                <img src="WhatsApp Image 2026-09-15 at 2.32.50 AM.jpeg" class="w-full h-full object-cover opacity-60" alt="AI Video Case Study">
+            </div>
+            <div class="p-10 md:p-20">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="text-[10px] font-bold tracking-widest uppercase text-brand-orange bg-brand-orange/10 px-3 py-1.5 rounded-full">AI Video Animation</span>
+                    <span class="text-[10px] font-bold tracking-widest uppercase text-muted-gray">Commercial</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-extrabold headline-tight text-brand-black mb-12">Cinematic AI Motion & Prompts.</h2>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-16 border-t border-border-light pt-12">
+                    <div class="md:col-span-4">
+                        <div class="mb-10">
+                            <h4 class="text-[10px] font-bold tracking-widest uppercase text-muted-gray mb-3">Role</h4>
+                            <p class="text-base font-bold text-brand-black">AI Creative Animator</p>
+                        </div>
+                        <div class="mb-10">
+                            <h4 class="text-[10px] font-bold tracking-widest uppercase text-muted-gray mb-3">Tools</h4>
+                            <p class="text-base font-bold text-brand-black">Midjourney<br>Runway / Sora<br>ElevenLabs</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-8 space-y-10 text-lg font-light leading-relaxed text-brand-black">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">The Capability</h3>
+                            <p>AI isn't just about static images anymore; it's about motion. I utilize advanced, multi-step prompt engineering to generate photorealistic 3D product renders, commercial lifestyle shots, and seamless cinematic transitions.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">The Execution</h3>
+                            <p>From a 5-scene commercial laptop campaign to 1/7 scale figurine visualizers, I manage the entire generative pipeline. This includes setting the camera angles (e.g., 21:9 anamorphic), defining lighting, and syncing audio.</p>
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/1L6jW1PQkmTEc69dVW0f4_J5T0Hcy1EzK?usp=drive_link" target="_blank" class="inline-flex items-center gap-3 bg-brand-black text-white px-8 py-4 rounded-full text-sm font-bold tracking-wide hover:bg-brand-orange transition-colors">
+                            Watch Video Portfolio
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('scale-y-0')) {
+                menu.classList.remove('scale-y-0', 'opacity-0');
+                menu.classList.add('scale-y-100', 'opacity-100');
+            } else {
+                menu.classList.remove('scale-y-100', 'opacity-100');
+                menu.classList.add('scale-y-0', 'opacity-0');
+            }
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-sm', 'bg-warm-ivory/95');
+                nav.classList.remove('bg-warm-ivory/90');
+            } else {
+                nav.classList.remove('shadow-sm', 'bg-warm-ivory/95');
+                nav.classList.add('bg-warm-ivory/90');
+            }
+        });
+
+        // Intersection Observer (Scroll Reveal)
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, { root: null, threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Modals
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.classList.add('no-scroll');
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            setTimeout(() => { document.body.classList.remove('no-scroll'); }, 500);
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => closeModal(modal.id));
+            }
+        });
+
+        // Formspree Submission Handler (https://formspree.io/f/mjgakkqg)
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const btn = document.getElementById('submitBtn');
+                const btnText = document.getElementById('btnText');
+                const successBox = document.getElementById('formSuccess');
+
+                btn.disabled = true;
+                btnText.textContent = "Sending...";
+
+                const formData = new FormData(contactForm);
+
+                try {
+                    const response = await fetch('https://formspree.io/f/mjgakkqg', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        contactForm.classList.add('hidden');
+                        successBox.classList.remove('hidden');
+                        successBox.classList.add('flex');
+                    } else {
+                        alert('Something went wrong. Please email directly at sumitbhardwaj1357@gmail.com');
+                        btn.disabled = false;
+                        btnText.textContent = "Send Message";
+                    }
+                } catch (error) {
+                    alert('Connection error. Please try again or reach out via email.');
+                    btn.disabled = false;
+                    btnText.textContent = "Send Message";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
